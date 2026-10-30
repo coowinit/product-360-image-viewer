@@ -4,7 +4,7 @@
   const file = i => `images/img${String(i + 1).padStart(2, '0')}.jpg`;
   const $ = id => document.getElementById(id);
   const stage = $('stage'), img = $('productImage'), angle = $('angle'), frame = $('frame');
-  const play = $('play'), hint = $('dragHint'), status = $('stateText'), progress = $('progressFill');
+  const play = $('play'), hint = $('dragHint'), status = $('stateText'), rotationProgress = $('progressFill');
   const tabs = [...document.querySelectorAll('[data-view]')];
   let current = 0, view = 'spin', timer = null;
   let dragging = false, startX = 0, startFrame = 0;
@@ -17,7 +17,7 @@
     img.alt = `产品360度展示，第${current + 1}帧，${current * 10}度`;
     angle.textContent = `${current * 10}°`;
     frame.textContent = `${String(current + 1).padStart(2,'0')} / ${TOTAL}`;
-    progress.style.width = `${current / (TOTAL - 1) * 100}%`;
+    rotationProgress.style.width = `${current / (TOTAL - 1) * 100}%`;
   }
   function stop() {
     if (timer !== null) clearInterval(timer);
