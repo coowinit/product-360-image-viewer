@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f6f8">
+  <title>360° 产品图片展示</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/viewer.js" defer></script>
+</head>
+<body>
+  <main class="layout">
+    <header class="page-heading">
+      <div><p class="eyebrow">PRODUCT VIEWER</p><h1>360° 产品展示</h1><p class="subtitle">拖动或滑动，探索产品的每个角度</p></div>
+      <span class="photo-count">36 帧 · 10° / 帧</span>
+    </header>
+    <section class="viewer" aria-label="360度产品图片预览">
+      <div class="view-tabs" role="group" aria-label="选择查看模式">
+        <button type="button" class="active" data-view="spin" aria-pressed="true">360° 旋转</button>
+        <button type="button" data-view="front" aria-pressed="false">正面</button>
+        <button type="button" data-view="back" aria-pressed="false">背面</button>
+      </div>
+      <div class="stage" id="stage" role="img" aria-label="用鼠标拖动或触屏滑动旋转产品，键盘左右键可切换图片" tabindex="0">
+        <img id="productImage" src="images/img01.jpg" alt="产品360度展示，第1帧" draggable="false" width="800" height="600">
+        <span class="drag-hint" id="dragHint" aria-hidden="true">↔ 左右拖动旋转</span>
+      </div>
+      <div class="viewer-footer">
+        <div class="frame-info" aria-live="off"><span class="degree" id="angle">0°</span><span class="frame-label" id="frame">01 / 36</span></div>
+        <div class="actions">
+          <button type="button" id="previous" aria-label="上一帧" title="上一帧">‹</button>
+          <button type="button" id="play" class="play" aria-label="自动旋转">▶ <span>自动旋转</span></button>
+          <button type="button" id="next" aria-label="下一帧" title="下一帧">›</button>
+        </div>
+      </div>
+      <div class="loading-line" aria-hidden="true"><div id="progressFill"></div></div>
+    </section>
+    <p class="bottom-note"><span class="status-dot"></span><span id="stateText">正在加载图片…</span><span class="note-separator">·</span>本地图片 · 离线可用</p>
+  </main>
+</body>
+</html>
